@@ -42,6 +42,6 @@ jobs:
           curl --location 'https://api.mailgun.net/v3/salaryontime.com/messages' \
             --header 'Authorization: Basic YXBpOjM1NGRkNjZhNjllN2UzZDVjNDc0NzE5NWRiNTVhM2RkLWFjM2Q1Zjc0LWQ3ODEwZWU3' \
             --form 'from="info@salaryontime.com"' \
-            --form 'to="arvind@salaryontime.com", "bhavish@salaryontime.com", "megha@salaryontime.com", "alam@salaryontime.com", "ahsutosh@salaryontime.com", "ishu@salaryontime.com", "ajit@salaryontime.com"' \
+            --from 'to="arvind@salaryontime.com, bhavish@salaryontime.com, Megha@salaryontime.com, alam@salaryontime.com, ahsutosh@salaryontime.com, ishu@salaryontime.com, ajit@salaryontime.com"' \
             --form "text=Latest APK URL: $RELEASE_URL" \
             --form 'subject="Latest Build HRMS app"'
