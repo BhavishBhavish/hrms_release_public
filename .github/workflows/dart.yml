@@ -30,11 +30,11 @@ jobs:
           tag: ${{ env.RELEASE_TAG }}
           token: ${{ secrets.PUBLIC_REPO   }}
 
-      #https://github.com/arv-aks/actions_public/releases/tag/v1.0.6
+      #https://github.com/BhavishBhavish/hrms_release_public/releases/download/v1.0.19/app-release.apk
 
       - name: Create release apk download URL
         run: |
-          URL="https://github.com/${{ github.repository }}/releases/tag/${{ env.RELEASE_TAG }}"
+          URL="https://github.com/${{ github.repository }}/releases/download/${{ env.RELEASE_TAG }}/app-release.apk"
           echo "Download URL: $URL"
 
       # - name: Get Release apk and Send Email
