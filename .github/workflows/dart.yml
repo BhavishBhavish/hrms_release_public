@@ -20,12 +20,22 @@ jobs:
         run: |
           tar -xvf app-release.tgz 
 
+      - name: Set Release Tag
+        run: echo "RELEASE_TAG=v1.0.${{ github.run_number }}" >> $GITHUB_ENV
+
       - name: Push to release
         uses: ncipollo/release-action@v1
         with: 
           artifacts: "app-release.apk"
-          tag: v1.0.${{github.run_number}}
+          tag: ${{ env.RELEASE_TAG }}
           token: ${{ secrets.PUBLIC_REPO   }}
+
+      #https://github.com/arv-aks/actions_public/releases/tag/v1.0.6
+
+      - name: Create release apk download URL
+        run: |
+          URL="https://github.com/${{ github.repository }}/releases/tag/${{ env.RELEASE_TAG }}"
+          echo "Download URL: $URL"
 
       # - name: Get Release apk and Send Email
       #   run: | 
@@ -39,13 +49,13 @@ jobs:
       #       --form 'subject="Latest Build HRMS app"'
 
 
-      - name: Get Release apk and Send Email
-        run: | 
-          RELEASE_URL="https://github.com/${{ github.repository }}/releases/latest"
-          echo "APK Released: $RELEASE_URL"
-          curl --location 'https://api.mailgun.net/v3/salaryontime.com/messages' \
-            --header 'Authorization: Basic YXBpOjM1NGRkNjZhNjllN2UzZDVjNDc0NzE5NWRiNTVhM2RkLWFjM2Q1Zjc0LWQ3ODEwZWU3' \
-            --form 'from="info@salaryontime.com"' \
-            --form 'to="arvind@salaryontime.com, bhavish@salaryontime.com, Megha@salaryontime.com, alam@salaryontime.com, ashutosh@salaryontime.com, ishu@salaryontime.com, ajit@salaryontime.com, rohit@salaryontime.com, kasim@salaryontime.com"' \
-            --form "text=Latest APK URL: $RELEASE_URL" \
-            --form 'subject="Latest Build HRMS app"'
+      # - name: Get Release apk and Send Email
+      #   run: | 
+      #     RELEASE_URL="https://github.com/${{ github.repository }}/releases/latest"
+      #     echo "APK Released: $RELEASE_URL"
+      #     curl --location 'https://api.mailgun.net/v3/salaryontime.com/messages' \
+      #       --header 'Authorization: Basic YXBpOjM1NGRkNjZhNjllN2UzZDVjNDc0NzE5NWRiNTVhM2RkLWFjM2Q1Zjc0LWQ3ODEwZWU3' \
+      #       --form 'from="info@salaryontime.com"' \
+      #       --form 'to="arvind@salaryontime.com, bhavish@salaryontime.com, Megha@salaryontime.com, alam@salaryontime.com, ashutosh@salaryontime.com, ishu@salaryontime.com, ajit@salaryontime.com, rohit@salaryontime.com, kasim@salaryontime.com"' \
+      #       --form "text=Latest APK URL: $RELEASE_URL" \
+      #       --form 'subject="Latest Build HRMS app"'
