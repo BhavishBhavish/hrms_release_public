@@ -31,18 +31,6 @@ jobs:
           token: ${{ secrets.PUBLIC_REPO   }}
 
       #### for All tech team
-      # - name: Get Release apk and Send Email
-      #   run: | 
-      #     RELEASE_URL="https://github.com/${{ github.repository }}/releases/download/${{ env.RELEASE_TAG }}/app-release.apk"
-      #     echo "Download URL: $RELEASE_URL"
-      #     curl --location 'https://api.mailgun.net/v3/salaryontime.com/messages' \
-      #       --header 'Authorization: Basic YXBpOjM1NGRkNjZhNjllN2UzZDVjNDc0NzE5NWRiNTVhM2RkLWFjM2Q1Zjc0LWQ3ODEwZWU3' \
-      #       --form 'from="info@salaryontime.com"' \
-      #       --form 'to="arvind@salaryontime.com, bhavish@salaryontime.com, Megha@salaryontime.com, alam@salaryontime.com, ashutosh@salaryontime.com, ishu@salaryontime.com, ajit@salaryontime.com, rohit@salaryontime.com, kasim@salaryontime.com"' \
-      #       --form "text=Latest APK URL: $RELEASE_URL" \
-      #       --form 'subject="HRMS app version: $RELEASE_URL"'
-
-      #### for 3 people
       - name: Get Release apk and Send Email
         run: | 
           RELEASE_URL="https://github.com/${{ github.repository }}/releases/download/${{ env.RELEASE_TAG }}/app-release.apk"
@@ -50,9 +38,21 @@ jobs:
           curl --location 'https://api.mailgun.net/v3/salaryontime.com/messages' \
             --header 'Authorization: Basic YXBpOjM1NGRkNjZhNjllN2UzZDVjNDc0NzE5NWRiNTVhM2RkLWFjM2Q1Zjc0LWQ3ODEwZWU3' \
             --form 'from="info@salaryontime.com"' \
-            --form 'to="arvind@salaryontime.com, bhavish@salaryontime.com, Megha@salaryontime.com"' \
-            --form "text=Click on the link to download HRMS app:  $RELEASE_URL" \
+            --form 'to="arvind@salaryontime.com, bhavish@salaryontime.com, Megha@salaryontime.com, alam@salaryontime.com, ashutosh@salaryontime.com, ishu@salaryontime.com, ajit@salaryontime.com, rohit@salaryontime.com, kasim@salaryontime.com"' \
+            --form "text=Click on the link to download HRMS app: $RELEASE_URL" \
             --form 'subject="HRMS app version: $RELEASE_URL"'
+
+      #### for 3 people
+      # - name: Get Release apk and Send Email
+      #   run: | 
+      #     RELEASE_URL="https://github.com/${{ github.repository }}/releases/download/${{ env.RELEASE_TAG }}/app-release.apk"
+      #     echo "Download URL: $RELEASE_URL"
+      #     curl --location 'https://api.mailgun.net/v3/salaryontime.com/messages' \
+      #       --header 'Authorization: Basic YXBpOjM1NGRkNjZhNjllN2UzZDVjNDc0NzE5NWRiNTVhM2RkLWFjM2Q1Zjc0LWQ3ODEwZWU3' \
+      #       --form 'from="info@salaryontime.com"' \
+      #       --form 'to="arvind@salaryontime.com, bhavish@salaryontime.com, Megha@salaryontime.com"' \
+      #       --form "text=Click on the link to download HRMS app:  $RELEASE_URL" \
+      #       --form 'subject="HRMS app version: $RELEASE_URL"'
 
 
 
