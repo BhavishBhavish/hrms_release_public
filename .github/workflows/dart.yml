@@ -70,14 +70,14 @@ jobs:
          echo '{
           "version": "'${{ env.APK_VERSION }}'",
           "url": "'$RELEASE_URL'"
-         }' > custom.json
+         }' > check_app_version.json
 
 
       - name: Commit and Push JSON File
         run: |
          git config --global user.email "bhavish@salaryontime.com"
          git config --global user.name "BhavishBhavish"
-         git add custom.json
+         git add check_app_version.json
          git commit -m "Updated custom.json file"
          git push
 
