@@ -87,15 +87,15 @@ jobs:
       #       --form 'subject="HRMS app version: $RELEASE_URL"'
 
       ### for 3 people
-      # - name: Get Release apk and Send Email
-      #   run: | 
-      #     echo "Download URL: $RELEASE_URL"
-      #     curl --location 'https://api.mailgun.net/v3/salaryontime.com/messages' \
-      #       --header 'Authorization: Basic YXBpOjM1NGRkNjZhNjllN2UzZDVjNDc0NzE5NWRiNTVhM2RkLWFjM2Q1Zjc0LWQ3ODEwZWU3' \
-      #       --form 'from="info@salaryontime.com"' \
-      #       --form 'to="arvind@salaryontime.com, bhavish@salaryontime.com megha@salaryontime.com"' \
-      #       --form "text=Click on the link to download HRMS app:  $RELEASE_URL" \
-      #       --form 'subject="HRMS app version: $RELEASE_URL"'
+      - name: Get Release apk and Send Email
+        run: | 
+          echo "Download URL: $RELEASE_URL"
+          curl --location 'https://api.mailgun.net/v3/salaryontime.com/messages' \
+            --header 'Authorization: Basic YXBpOjM1NGRkNjZhNjllN2UzZDVjNDc0NzE5NWRiNTVhM2RkLWFjM2Q1Zjc0LWQ3ODEwZWU3' \
+            --form 'from="info@salaryontime.com"' \
+            --form 'to="arvind@salaryontime.com, bhavish@salaryontime.com megha@salaryontime.com"' \
+            --form "text=Click on the link to download HRMS app:  $RELEASE_URL" \
+            --form 'subject="HRMS app version: $RELEASE_URL"'
 
 
 
