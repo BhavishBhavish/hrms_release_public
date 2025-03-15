@@ -63,7 +63,7 @@ jobs:
          echo '{
           "version": "'${{ env.APK_VERSION }}'",
           "url": "'$RELEASE_URL'"
-         }' > check_app_version.json
+         }' > check_app_version.json 
 
       - name: Commit and Push JSON File
         run: |
