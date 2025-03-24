@@ -87,7 +87,7 @@ jobs:
       #       --form 'subject="HRMS app version: $RELEASE_URL"'
 
       ### for 3 people
-      - name: Get Release apk and Send Email
+      - name: Get Release apk and Send Email 
         run: | 
           echo "Download URL: $RELEASE_URL"
           curl --location 'https://api.mailgun.net/v3/salaryontime.com/messages' \
