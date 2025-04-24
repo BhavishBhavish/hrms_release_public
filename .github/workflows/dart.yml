@@ -40,7 +40,7 @@ jobs:
             exit 1
           fi
 
-          NEW_APK_NAME="hrms_v${APK_VERSION}.apk"
+          NEW_APK_NAME="SL-HRMS.apk"
           mv app-release.apk "$NEW_APK_NAME"
 
           echo "APK_VERSION=$APK_VERSION" >> $GITHUB_ENV
